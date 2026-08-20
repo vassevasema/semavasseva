@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 - Az oldal nem található | Jánócsikné Vass Éva</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="icon" type="image/svg+xml" href="favico.ico">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  :root{
+    /* ---- Modern warm rose / mocha / cream palette ---- */
+    --cream:        #FBF5EC;
+    --cream-deep:   #F2E4D3;
+    --blush:        #F1D9CF;
+    --rose:         #E8B4A8;
+    --rose-deep:    #D17E6E;
+    --mocha:        #9A7863;
+    --mocha-deep:   #6B4B3C;
+    --espresso:     #3E2B25;
+    --ink:          #5C4A43;
+    --ink-soft:     #8B7A72;
+    --line: rgba(62,43,37,0.1);
+    
+    --accent-a: var(--rose-deep);
+    --accent-b: var(--mocha);
+    --accent-c: var(--blush);
+  }
+
+  body{
+    font-family:'Karla', sans-serif;
+    color: var(--espresso);
+    background: var(--cream);
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  h1,h2,h3,h4{ font-family:'Fraunces', serif; font-weight:400; letter-spacing:-0.01em; color:var(--espresso); }
+  a{ color:inherit; text-decoration:none; }
+  ::selection{ background: var(--blush); color: var(--mocha-deep); }
+
+  /* ---------- botanical sprig ---------- */
+  .sprig{ position:absolute; pointer-events:none; }
+  .sprig svg{ width:100%; height:100%; display:block; }
+
+  /* ---------- Navigation ---------- */
+  nav{
+    background: rgba(251,245,236,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom:1px solid var(--line);
+    padding:20px 32px;
+    position:sticky; top:0; z-index:1000;
+  }
+  .nav-container{
+    max-width:1180px; margin:0 auto;
+    display:flex; justify-content:space-between; align-items:center;
+  }
+  .logo{
+    font-family:'Fraunces', serif; font-size:24px; font-weight:500;
+    letter-spacing:0.01em; cursor:pointer; display:flex; align-items:baseline; gap:8px;
+    transition: transform 0.25s ease;
+  }
+  .logo:hover{ transform:scale(1.05); }
+  .logo .logo-dot{ color: var(--rose-deep); font-size:28px; line-height:0; }
+  
+  .nav-links{ display:flex; align-items:center; gap:36px; }
+  .nav-links a.navlink{
+    font-family:'Karla', sans-serif; font-size:15px; letter-spacing:0.02em;
+    color: var(--ink); text-decoration:none; cursor:pointer;
+    padding:8px 0; position:relative; transition: color 0.3s ease;
+  }
+  .nav-links a.navlink::after{
+    content:""; position:absolute; left:0; right:0; bottom:-4px; height:2px;
+    background: var(--rose-deep); transform:scaleX(0); transform-origin:left;
+    transition:transform 0.35s cubic-bezier(0.23,1,0.32,1);
+  }
+  .nav-links a.navlink:hover{ color: var(--espresso); }
+  .nav-links a.navlink:hover::after{ transform:scaleX(1); }
+
+  /* ---------- 404 Container ---------- */
+  .not-found-section {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 100px 32px;
+    overflow: hidden;
+  }
+  
+  .not-found-section::before{
+    content:""; position:absolute; top:50%; left:50%; width:100vw; height:800px;
+    transform:translate(-50%, -50%); z-index:0;
+    background: radial-gradient(ellipse 780px 480px at 20% 20%, var(--blush) 0%, transparent 62%),
+                radial-gradient(ellipse 620px 520px at 80% 80%, var(--cream-deep) 0%, transparent 58%);
+    opacity:0.6;
+  }
+
+  .error-box {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 600px;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(225,179,168,0.4);
+    padding: 60px 48px;
+    border-radius: 32px;
+    box-shadow: 0 16px 40px rgba(62,43,37,0.08);
+  }
+
+  .error-code {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(80px, 12vw, 140px);
+    line-height: 1;
+    color: var(--rose-deep);
+    margin-bottom: 12px;
+    font-style: italic;
+  }
+
+  .error-box h1 {
+    font-size: clamp(28px, 4vw, 36px);
+    margin-bottom: 16px;
+  }
+
+  .error-box p {
+    font-size: 17px;
+    color: var(--ink);
+    margin-bottom: 36px;
+    line-height: 1.7;
+  }
+
+  .btn{
+    padding:14px 32px; border-radius:100px; font-size:15px; font-weight:600;
+    cursor:pointer; border:none; transition: all 0.35s cubic-bezier(0.23,1,0.32,1);
+    display:inline-flex; align-items:center; gap:8px; font-family:'Karla', sans-serif;
+    text-decoration: none;
+  }
+  .btn-primary{ 
+    background: linear-gradient(135deg, var(--rose-deep), var(--mocha)); 
+    color:#fff; 
+    box-shadow: 0 10px 28px rgba(209,126,110,0.3);
+  }
+  .btn-primary:hover{ 
+    transform:translateY(-3px); 
+    box-shadow: 0 14px 36px rgba(209,126,110,0.4);
+  }
+  .btn-ghost{ 
+    background:transparent; 
+    color:var(--rose-deep); 
+    border:2px solid var(--rose-deep);
+  }
+  .btn-ghost:hover{ 
+    background:var(--blush); 
+    transform:translateY(-2px);
+  }
+
+  .actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .error-sprig-1 { width: 130px; height: 200px; color: var(--rose); top: -40px; left: -50px; transform: rotate(-20deg); opacity: 0.6; }
+  .error-sprig-2 { width: 100px; height: 160px; color: var(--mocha); bottom: -30px; right: -40px; transform: rotate(15deg); opacity: 0.4; }
+
+  /* ---------- Footer ---------- */
+  footer{
+    background: linear-gradient(135deg, var(--espresso) 0%, var(--mocha-deep) 100%);
+    color:rgba(255,255,255,0.8); padding:44px 32px;
+    text-align:center; font-size:14px; letter-spacing:0.01em;
+    display:flex; flex-direction:column; align-items:center; gap:12px;
+    border-top:1px solid rgba(255,255,255,0.1);
+  }
+  footer strong{ color:#fff; font-weight:600; }
+  footer .footer-sprig{ width:36px; height:36px; opacity:0.6; }
+  
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .error-box { padding: 48px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ hidden botanical sprig definition ============ -->
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <symbol id="sprig-shape" viewBox="0 0 160 260">
+      <path d="M80 255 C 76 200 84 150 78 100 C 74 65 82 35 80 5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+      <path d="M78 210 C 55 200 40 185 30 165 C 48 172 65 182 78 198" fill="currentColor" opacity="0.85"/>
+      <path d="M80 175 C 104 166 120 150 130 130 C 112 136 94 148 80 165" fill="currentColor" opacity="0.85"/>
+      <path d="M78 140 C 55 131 40 116 30 96 C 48 102 65 113 78 128" fill="currentColor" opacity="0.85"/>
+      <path d="M80 105 C 104 97 120 82 130 62 C 112 68 94 79 80 95" fill="currentColor" opacity="0.85"/>
+      <path d="M79 70 C 60 62 47 49 38 33 C 54 38 68 47 79 60" fill="currentColor" opacity="0.85"/>
+      <ellipse cx="80" cy="8" rx="7" ry="10" fill="currentColor" opacity="0.9"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- ============ Navigation ============ -->
+<nav>
+  <div class="nav-container">
+    <a href="/" class="logo"><span class="logo-dot">·</span>Éva</a>
+    <div class="nav-links">
+      <a href="/" class="navlink">Kezdőoldal</a>
+      <a href="/#about" class="navlink">Rólam</a>
+      <a href="/#services" class="navlink">Szolgáltatások</a>
+      <a href="/#contact" class="navlink">Kapcsolat</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ 404 Main Content ============ -->
+<main class="not-found-section">
+  <div class="error-box">
+    <!-- Decorative elements -->
+    <div class="sprig error-sprig-1"><svg viewBox="0 0 160 260"><use href="#sprig-shape"/></svg></div>
+    <div class="sprig error-sprig-2"><svg viewBox="0 0 160 260"><use href="#sprig-shape"/></svg></div>
+    
+    <div class="error-code">404</div>
+    <h1>Úgy tűnik, eltévedtünk</h1>
+    <p>A keresett oldal nem található. Lehet, hogy megváltozott a címe, vagy már nem létezik. Térjünk vissza a biztonságos útra.</p>
+    
+    <div class="actions">
+      <a href="/" class="btn btn-primary">Vissza a kezdőoldalra</a>
+      <a href="/#contact" class="btn btn-ghost">Kapcsolatfelvétel</a>
+    </div>
+  </div>
+</main>
+
+<!-- ============ Footer ============ -->
+<footer>
+  <svg class="footer-sprig" viewBox="0 0 160 260" style="color:var(--blush)"><use href="#sprig-shape"/></svg>
+  © 2026 <strong>Jánócsikné Vass Éva</strong> — Pszichológus, ISST sématerápiás konzultáns
+</footer>
+
+</body>
+</html>
