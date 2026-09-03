@@ -1821,7 +1821,7 @@
             </svg>
           </div>
           <div class="hero-photo-frame">
-            <img data-img="main" alt="Jánócsikné Vass Éva pszichológus, sématerápiás konzultáns portréja" width="340"
+            <img src="mainkep.jpg" alt="Jánócsikné Vass Éva pszichológus, sématerápiás konzultáns portréja" width="340"
               height="420" fetchpriority="high">
           </div>
         </div>
@@ -1838,7 +1838,7 @@
             változást érjünk el, amely a mindennapi életben is érezhető.</p>
         </div>
         <div class="quote-photo-frame">
-          <img data-img="flower" alt="Mezei virág — a növekedés és a változás szimbóluma" width="340" height="425" loading="lazy" decoding="async">
+          <img src="virag2.jpeg" alt="Mezei virág — a növekedés és a változás szimbóluma" width="340" height="425" loading="lazy" decoding="async">
         </div>
       </section>
 
@@ -1889,17 +1889,17 @@
           </svg></div>
         <div class="space-photo-cluster">
           <div class="space-photo-main">
-            <img data-img="room" alt="Nyugodt, meleg hangulatú konzultációs szoba" loading="lazy" decoding="async">
+            <img src="szobakep.jpg" alt="Nyugodt, meleg hangulatú konzultációs szoba" loading="lazy" decoding="async">
           </div>
           <div class="space-photo-accent">
-            <img data-img="virag" alt="Virág — a megújulás jelképe" loading="lazy" decoding="async">
+            <img src="virag3.jpeg" alt="Virág — a megújulás jelképe" loading="lazy" decoding="async">
           </div>
         </div>
         <div>
           <div class="eyebrow">A konzultáció helyszíne</div>
           <h2>Egy nyugodt, meleg hangulatú tér</h2>
           <p>A konzultációk egy csendes, otthonos térben zajlanak, ahol semmi nem vonja el a figyelmet attól, ami
-            valóban számít: az Ön történetétől.</p>
+            valóban számít: az Ön történetét.</p>
           <p>A cél, hogy már a helyszín is azt üzenje: itt biztonságban van, és teljes figyelmet kap.</p>
         </div>
       </section>
@@ -1924,7 +1924,7 @@
             <use href="#sprig-shape" />
           </svg></div>
         <div class="about-photo">
-          <img data-img="main" alt="Jánócsikné Vass Éva pszichológus portréja" loading="lazy" decoding="async">
+          <img src="mainkep.jpg" alt="Jánócsikné Vass Éva pszichológus portréja" loading="lazy" decoding="async">
         </div>
         <div>
           <h1 class="page-title">Jánócsikné Vass Éva</h1>
@@ -2015,7 +2015,7 @@
 
       <div class="services-banner">
         <div class="services-banner-photo">
-          <img data-img="virag" alt="Virág — a megújulás és fejlődés szimbóluma" loading="lazy" decoding="async">
+          <img src="virag4.jpeg" alt="Virág — a megújulás és fejlődés szimbóluma" loading="lazy" decoding="async">
         </div>
         <div class="services-banner-text">
           <p>Minden mintázat mögött egy tanult, valamikor hasznos túlélési stratégia áll. A közös munka célja, hogy ezek
@@ -2124,7 +2124,7 @@
         hogyan tudnék Önnek segíteni.</p>
 
       <div class="contact-photo-banner">
-        <img data-img="room" alt="A konzultációs szoba nyugodt hangulata" loading="lazy" decoding="async">
+        <img src="szobakep.jpg" alt="A konzultációs szoba nyugodt hangulata" loading="lazy" decoding="async">
         <div class="contact-photo-caption">A konzultáció helyszíne — egy csendes, otthonos tér</div>
       </div>
 
@@ -2139,10 +2139,6 @@
             <div class="contact-label">E-mail</div>
             <a href="mailto:vass.eva6@gmail.com" class="contact-value">vass.eva6@gmail.com</a>
           </div>
-          <!-- <div class="contact-item">
-          <div class="contact-label">Telefon</div>
-          <a href="tel:+36123456789" class="contact-value">+36 (1) 123-4567</a>
-        </div> -->
           <div class="contact-item">
             <div class="contact-label">Város</div>
             <div style="font-size:17px; color:var(--espresso); font-weight:600;">Nyíregyházán</div>
@@ -2262,41 +2258,6 @@
   </footer>
 
   <script>
-    document.addEventListener("DOMContentLoaded", function() {
-    // Az egyedi virágképek listája
-    const viragKepek = [
-      "virag2.jpeg",
-      "virag3.jpeg",
-      "virag4.jpeg",
-      "virag5.jpeg",
-      "virag6.jpeg",
-      "viragkep.jpg"
-    ];
-    
-    let viragIndex = 0;
-    const osszesKep = document.querySelectorAll('img');
-    
-    osszesKep.forEach(kep => {
-      // 1. Virágképek beállítása (ismétlődés nélkül)
-      if (kep.getAttribute('data-img') === 'flower' || kep.src.includes('flower') || kep.alt.includes('virág') || kep.alt.includes('Virág')) {
-        if (viragIndex < viragKepek.length) {
-          kep.src = viragKepek[viragIndex];
-          viragIndex++;
-        }
-      }
-      
-      // 2. Főkép beállítása
-      if (kep.getAttribute('data-img') === 'main' || kep.alt.includes('főkép') || kep.alt.includes('Éva')) {
-        kep.src = "mainkep.jpg";
-      }
-      
-      // 3. Rendelő/Szoba kép beállítása
-      if (kep.getAttribute('data-img') === 'room' || kep.alt.includes('szoba') || kep.alt.includes('rendelő')) {
-        kep.src = "szobakep.jpg";
-      }
-    });
-  });
-
     // Cookie Consent Functions
     function showCookieBanner() {
       const hasDecided = localStorage.getItem('cookiesAccepted');
@@ -2368,7 +2329,6 @@
 
     // Initialize
     document.addEventListener('DOMContentLoaded', () => {
-      loadImages();
       handleHash();
       showCookieBanner();
 
@@ -2399,5 +2359,4 @@
   </script>
 
 </body>
-
 </html>
