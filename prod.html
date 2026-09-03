@@ -2262,19 +2262,40 @@
   </footer>
 
   <script>
-    // ---- embedded photos (base64) ----
-    const IMAGES = {
-      main: "ChatGPT Image 2026. aug. 18. 20_58_32.png", /* A portréd */
-      room: "szobakep.jpg", /* A konzultációs szoba eredeti képe */
-      flower: "ChatGPT Image 2026. aug. 18. 21_04_05.png", /* Az új aloe verás kép */
-      virag: "viragkep.jpg" /* A korábbi virágos/növényes kép */
-    };
-    function loadImages() {
-      document.querySelectorAll('img[data-img]').forEach(img => {
-        const key = img.getAttribute('data-img');
-        if (IMAGES[key]) img.src = IMAGES[key];
-      });
-    }
+    document.addEventListener("DOMContentLoaded", function() {
+    // Az egyedi virágképek listája
+    const viragKepek = [
+      "virag2.jpeg",
+      "virag3.jpeg",
+      "virag4.jpeg",
+      "virag5.jpeg",
+      "virag6.jpeg",
+      "viragkep.jpg"
+    ];
+    
+    let viragIndex = 0;
+    const osszesKep = document.querySelectorAll('img');
+    
+    osszesKep.forEach(kep => {
+      // 1. Virágképek beállítása (ismétlődés nélkül)
+      if (kep.getAttribute('data-img') === 'flower' || kep.src.includes('flower') || kep.alt.includes('virág') || kep.alt.includes('Virág')) {
+        if (viragIndex < viragKepek.length) {
+          kep.src = viragKepek[viragIndex];
+          viragIndex++;
+        }
+      }
+      
+      // 2. Főkép beállítása
+      if (kep.getAttribute('data-img') === 'main' || kep.alt.includes('főkép') || kep.alt.includes('Éva')) {
+        kep.src = "mainkep.jpg";
+      }
+      
+      // 3. Rendelő/Szoba kép beállítása
+      if (kep.getAttribute('data-img') === 'room' || kep.alt.includes('szoba') || kep.alt.includes('rendelő')) {
+        kep.src = "szobakep.jpg";
+      }
+    });
+  });
 
     // Cookie Consent Functions
     function showCookieBanner() {
