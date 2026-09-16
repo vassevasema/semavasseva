@@ -1,87 +1,2360 @@
 <!DOCTYPE html>
 <html lang="hu">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hamarosan | Jánócsikné Vass Éva</title>
+  <title>Jánócsikné Vass Éva — Sématerápia és pszichológiai tanácsadás</title>
+
+  <!-- Meta tags for social media (Facebook, LinkedIn, etc.) -->
+  <meta property="og:title" content="Jánócsikné Vass Éva — Sématerápia és pszichológiai tanácsadás">
+  <meta property="og:description"
+    content="Okleveles pszichológus és minősített ISST sématerápiás konzultáns. Nem csak a tüneteket kezeljük, hanem a mögöttük álló mintázatokat is.">
+  <meta property="og:image" content="https://vassevasema.hu/social-banner.jpg">
+  <meta property="og:url" content="https://vassevasema.hu/">
+  <meta property="og:type" content="website">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Jánócsikné Vass Éva — Sématerápia és pszichológiai tanácsadás">
+  <meta name="twitter:description"
+    content="Okleveles pszichológus és minősített ISST sématerápiás konzultáns. Nem csak a tüneteket kezeljük, hanem a mögöttük álló mintázatokat is.">
+  <meta name="twitter:image" content="https://vassevasema.hu/social-banner.jpg">
+
+  <!-- Meta tag for SEO description -->
+  <meta name="description"
+    content="Jánócsikné Vass Éva okleveles pszichológus és minősített ISST sématerápiás konzultáns. Sématerápia, kognitív viselkedésterápia felnőtteknek Nyíregyházán.">
+
+  <!-- Theme color for mobile browsers -->
+  <meta name="theme-color" content="#FBF5EC">
+
+  <!-- Web App Manifest for installability (PWA) -->
+  <link rel="manifest" href="manifest.json">
+
+  <!-- Apple touch icon for iOS home screen -->
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="icon" type="image/svg+xml" href="favico.ico">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Karla:wght@400;500;600&display=swap" rel="stylesheet">
+  <!-- Optimized font loading for better Lighthouse score -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Karla:wght@400;500;600;700&display=swap"
+    rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Karla:wght@400;500;600;700&display=swap"
+      rel="stylesheet">
+  </noscript>
+
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     :root {
+      /* ---- 3 Pasztell + 1 Rózsaszín paletta ---- */
       --cream: #F9F9F8;
+      /* Pasztell 1: Világos, tiszta alap */
       --cream-deep: #EFF1ED;
+      /* Pasztell 2: Enyhén zöldes-szürkés pasztell a növényes képhez */
       --blush: #F0EAE6;
+      /* Pasztell 3: Melegebb, bézses pasztell */
+
       --rose: #EAB8BE;
+      /* Világos rózsaszín kiegészítő */
       --rose-deep: #D57A8A;
+      /* A FŐ rózsaszín akcentus szín */
+
+      /* A sötétebb kontrasztszíneket finomítottam, hogy harmonizáljanak a pasztellekkel */
+      --mocha: #9A8A86;
+      --mocha-deep: #6B5C58;
       --espresso: #3A3130;
       --ink: #5E5250;
+      --ink-soft: #8F8381;
+      --line: rgba(58, 49, 48, 0.1);
+
+      --radius: 24px;
+      --shadow-sm: 0 2px 8px rgba(58, 49, 48, 0.08);
+      --shadow-md: 0 8px 24px rgba(58, 49, 48, 0.12);
+      --shadow-lg: 0 16px 40px rgba(58, 49, 48, 0.15);
+
+      --accent-a: var(--rose-deep);
+      --accent-b: var(--mocha);
+      --accent-c: var(--blush);
     }
+
+    /* ---- each subpage mixes two shades from the rose/mocha/cream family, not just one repeated hue ---- */
+    #about {
+      --accent-a: #A9705A;
+      --accent-b: var(--rose-deep);
+      --accent-c: #E9D3C4;
+    }
+
+    #services {
+      --accent-a: #C98A76;
+      --accent-b: var(--mocha-deep);
+      --accent-c: #F0DCCF;
+    }
+
+    #contact {
+      --accent-a: #B97B6B;
+      --accent-b: var(--rose-deep);
+      --accent-c: #EAD6C9;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      margin: 0; padding: 0;
-      background: radial-gradient(ellipse at 50% 50%, var(--cream) 0%, var(--blush) 100%);
-      color: var(--espresso);
       font-family: 'Karla', sans-serif;
+      color: var(--espresso);
+      background: var(--cream);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: 'Fraunces', serif;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      color: var(--espresso);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    ::selection {
+      background: var(--blush);
+      color: var(--mocha-deep);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+      }
+    }
+
+    /* ---------- Cookie Consent Banner (non-blocking) ---------- */
+    .cookie-banner {
+      position: fixed;
+      bottom: 32px;
+      left: 32px;
+      right: 32px;
+      max-width: 480px;
+      background: linear-gradient(135deg, var(--cream) 0%, var(--blush) 100%);
+      border-radius: 20px;
+      padding: 28px;
+      z-index: 9999;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid rgba(225, 179, 168, 0.3);
+      transform: translateY(140px);
+      opacity: 0;
+      visibility: hidden;
+      transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.5s ease, visibility 0.5s ease;
+      pointer-events: none;
+    }
+
+    .cookie-banner.show {
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    .cookie-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .cookie-icon {
+      width: 26px;
+      height: 26px;
+      border-radius: 8px;
+      background: var(--rose-deep);
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 100vh;
-      text-align: center;
-      padding: 20px;
+      color: #fff;
+      font-weight: 700;
+      font-size: 15px;
     }
-    .container {
-      background: rgba(255, 255, 255, 0.6);
-      backdrop-filter: blur(10px);
-      padding: 60px 40px;
-      border-radius: 32px;
-      border: 1px solid rgba(213, 122, 138, 0.3);
-      box-shadow: 0 16px 40px rgba(58, 49, 48, 0.08);
-      max-width: 600px;
-      width: 100%;
-    }
-    h1 {
+
+    .cookie-title {
       font-family: 'Fraunces', serif;
-      font-size: clamp(36px, 5vw, 48px);
-      color: var(--rose-deep);
-      margin-bottom: 16px;
+      font-size: 17px;
       font-weight: 500;
+      color: var(--espresso);
     }
-    p {
-      font-size: 18px;
+
+    .cookie-text {
+      font-size: 13px;
       color: var(--ink);
-      margin-bottom: 8px;
       line-height: 1.6;
+      margin-bottom: 18px;
     }
-    .divider {
-      width: 40px;
-      height: 2px;
+
+    .cookie-text a {
+      color: var(--rose-deep);
+      font-weight: 600;
+      text-decoration: underline;
+    }
+
+    .cookie-text a:hover {
+      text-decoration: none;
+    }
+
+    .cookie-actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    .cookie-btn {
+      padding: 9px 22px;
+      border: none;
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: 'Karla', sans-serif;
+    }
+
+    .cookie-btn-accept {
       background: var(--rose-deep);
-      margin: 32px auto;
+      color: #fff;
+      box-shadow: 0 6px 16px rgba(209, 126, 110, 0.3);
     }
-    .name {
+
+    .cookie-btn-accept:hover {
+      background: var(--mocha-deep);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(209, 126, 110, 0.4);
+    }
+
+    .cookie-btn-reject {
+      background: transparent;
+      color: var(--espresso);
+      border: 1.5px solid var(--line);
+    }
+
+    .cookie-btn-reject:hover {
+      background: var(--cream-deep);
+      border-color: var(--ink);
+    }
+
+    @media (max-width:640px) {
+      .cookie-banner {
+        left: 16px;
+        right: 16px;
+        bottom: 16px;
+        padding: 22px;
+        max-width: none;
+      }
+
+      .cookie-actions {
+        flex-direction: column;
+      }
+
+      .cookie-btn {
+        width: 100%;
+      }
+    }
+
+    /* ---------- botanical sprig (signature motif) ---------- */
+    .sprig {
+      position: absolute;
+      pointer-events: none;
+    }
+
+    .sprig svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    /* ---------- Navigation ---------- */
+    nav {
+      background: rgba(251, 245, 236, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+      padding: 20px 32px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .nav-container {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
       font-family: 'Fraunces', serif;
       font-size: 24px;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      cursor: pointer;
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      transition: transform 0.25s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.05);
+    }
+
+    .logo .logo-dot {
+      color: var(--rose-deep);
+      font-size: 28px;
+      line-height: 0;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+    }
+
+    .nav-links button.navlink {
+      font-family: 'Karla', sans-serif;
+      font-size: 15px;
+      letter-spacing: 0.02em;
+      color: var(--ink);
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      background: none;
+      padding: 8px 0;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links button.navlink::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -4px;
+      height: 2px;
+      background: var(--rose-deep);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    .nav-links button.navlink:hover {
+      color: var(--espresso);
+    }
+
+    .nav-links button.navlink:hover::after,
+    .nav-links button.navlink.active::after {
+      transform: scaleX(1);
+    }
+
+    .nav-links button.navlink.active {
+      color: var(--espresso);
+      font-weight: 600;
+    }
+
+    .nav-cta {
+      font-family: 'Karla', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      background: linear-gradient(135deg, var(--rose-deep), var(--mocha-deep));
+      color: #fff;
+      padding: 12px 28px;
+      border-radius: 100px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+      box-shadow: 0 6px 16px rgba(209, 126, 110, 0.25);
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 24px rgba(209, 126, 110, 0.35);
+    }
+
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 10px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--espresso);
+      margin: 5px 0;
+      border-radius: 2px;
+    }
+
+    @media (max-width:900px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hamburger {
+        display: block;
+      }
+
+      .nav-links.mobile-open {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        position: absolute;
+        top: 74px;
+        left: 0;
+        right: 0;
+        background: rgba(251, 245, 236, 0.98);
+        backdrop-filter: blur(10px);
+        border-top: 1px solid var(--line);
+        padding: 20px 32px 26px;
+      }
+
+      .nav-links.mobile-open button.navlink {
+        padding: 12px 0;
+        width: 100%;
+        text-align: left;
+      }
+
+      .nav-links.mobile-open .nav-cta {
+        margin-top: 8px;
+        width: 100%;
+      }
+
+      /* Better touch targets for mobile menu items */
+      .nav-links button.navlink {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    /* ---------- Page transitions ---------- */
+    .page {
+      display: none;
+    }
+
+    .page.active {
+      display: block;
+      animation: rise 0.6s ease both;
+    }
+
+    @keyframes rise {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+
+      to {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    .wrap {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      padding: 90px 0 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: -120px;
+      left: 50%;
+      width: 100vw;
+      height: 640px;
+      transform: translateX(-50%);
+      z-index: 0;
+      background: radial-gradient(ellipse 780px 480px at 12% 10%, var(--blush) 0%, transparent 62%),
+        radial-gradient(ellipse 620px 520px at 92% 30%, var(--cream-deep) 0%, transparent 58%);
+      opacity: 0.7;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 72px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent-a);
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 28px;
+      height: 1px;
+      background: var(--accent-a);
+      display: inline-block;
+    }
+
+    .hero h1 {
+      font-size: clamp(40px, 5.5vw, 62px);
+      line-height: 1.08;
+      font-weight: 400;
+      margin-bottom: 28px;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--rose-deep);
+      font-weight: 400;
+    }
+
+    .hero p.lead {
+      font-size: 18px;
+      color: var(--ink);
+      max-width: 500px;
+      margin-bottom: 42px;
+      line-height: 1.8;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 14px 32px;
+      border-radius: 100px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: 'Karla', sans-serif;
+      /* Ensure good touch targets */
+      min-height: 48px;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--rose-deep), var(--mocha));
+      color: #fff;
+      box-shadow: 0 10px 28px rgba(209, 126, 110, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 36px rgba(209, 126, 110, 0.4);
+    }
+
+    .btn-ghost {
+      background: #fff;
+      color: var(--rose-deep);
+      border: 2px solid var(--rose-deep);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-ghost:hover {
+      background: var(--blush);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-white {
+      background: #fff;
+      color: var(--rose-deep);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn-white:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    .hero-photo-wrap {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 460px;
+    }
+
+    .hero-photo-frame {
+      width: 340px;
+      height: 420px;
+      border-radius: 180px 180px 24px 24px;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      z-index: 3;
+      border: 6px solid var(--cream);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .hero-photo-frame:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 32px 64px rgba(62, 43, 37, 0.2);
+    }
+
+    .hero-photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero-blob {
+      position: absolute;
+      width: 400px;
+      height: 480px;
+      border-radius: 200px 200px 30px 30px;
+      background: var(--blush);
+      z-index: 1;
+      top: 50%;
+      left: 50%;
+      transform: translate(-42%, -46%) rotate(-6deg);
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translate(-42%, -46%) rotate(-6deg) translateY(0px);
+      }
+
+      50% {
+        transform: translate(-42%, -46%) rotate(-6deg) translateY(-12px);
+      }
+    }
+
+    .hero-sprig-wrap {
+      position: absolute;
+      width: 560px;
+      height: 560px;
+      z-index: 2;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .hero-sprig-wrap svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    @media (max-width:900px) {
+      .hero {
+        padding: 40px 0 20px;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .hero-photo-wrap {
+        order: -1;
+        min-height: 360px;
+      }
+
+      .hero-photo-frame {
+        width: 260px;
+        height: 320px;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+
+    /* ---------- Signature quote / two column ---------- */
+    .two-column {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: center;
+      margin: 140px auto;
+    }
+
+    .two-column h2 {
+      font-size: 36px;
+      margin-bottom: 24px;
+      font-weight: 400;
+    }
+
+    .two-column p {
+      color: var(--ink);
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    @media (max-width: 900px) {
+      .two-column {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        margin: 80px auto;
+      }
+    }
+
+    .quote-box {
+      background: linear-gradient(150deg, var(--blush), var(--cream-deep));
+      border-radius: 28px;
+      padding: 52px 48px;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(225, 179, 168, 0.4);
+      box-shadow: var(--shadow-md);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .quote-box:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .quote-box .sprig {
+      width: 110px;
+      height: 170px;
+      right: -18px;
+      bottom: -22px;
+      opacity: 0.4;
+      transform: rotate(8deg);
+    }
+
+    .quote-mark {
+      font-family: 'Fraunces', serif;
+      font-size: 68px;
+      color: var(--rose-deep);
+      line-height: 0.6;
+      display: block;
+      margin-bottom: 14px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .quote-box p.quote-text {
+      font-family: 'Fraunces', serif;
+      font-size: 21px;
+      font-style: italic;
+      color: var(--espresso);
+      margin-bottom: 28px;
+      line-height: 1.65;
+      position: relative;
+      z-index: 1;
+    }
+
+    .quote-box .author {
+      font-size: 15px;
+      font-weight: 700;
       color: var(--espresso);
       margin-bottom: 4px;
+      font-family: 'Karla', sans-serif;
+      position: relative;
+      z-index: 1;
     }
-    .title {
-      font-size: 14px;
+
+    .quote-box .title {
+      font-size: 13px;
+      color: var(--ink-soft);
+      position: relative;
+      z-index: 1;
+    }
+
+    .quote-photo-frame {
+      width: 100%;
+      aspect-ratio: 4/5;
+      max-width: 340px;
+      margin: 0 auto;
+      border-radius: 20px 20px 20px 20px;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      border: 6px solid #fff;
+      position: relative;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .quote-photo-frame:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    /* Added fetchpriority="low" for images outside viewport */
+    .quote-photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ---------- Homepage services teaser ---------- */
+    .teaser-section {
+      padding: 30px 0 60px;
+    }
+
+    .section-heading {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 68px;
+    }
+
+    .section-heading .eyebrow {
+      justify-content: center;
+    }
+
+    .section-heading h2 {
+      font-size: 38px;
+    }
+
+    .teaser-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .teaser-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 40px 32px;
+      border: 1px solid var(--line);
+      transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .teaser-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--rose);
+    }
+
+    .teaser-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+
+    .teaser-card:nth-child(1) .teaser-icon {
+      background: var(--blush);
+    }
+
+    .teaser-card:nth-child(2) .teaser-icon {
+      background: var(--cream-deep);
+    }
+
+    .teaser-card:nth-child(3) .teaser-icon {
+      background: var(--rose);
+    }
+
+    .teaser-card h3 {
+      font-size: 20px;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+
+    .teaser-card p {
+      font-size: 15px;
       color: var(--ink);
+      line-height: 1.65;
+    }
+
+    @media (max-width:860px) {
+      .teaser-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-heading {
+        margin: 0 auto 40px;
+      }
+    }
+
+    /* ---------- Home: therapy space photo section ---------- */
+    .space-section {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 64px;
+      align-items: center;
+      margin: 20px auto 130px;
+      padding: 64px 60px;
+      border-radius: 32px;
+      background: linear-gradient(120deg, var(--cream-deep) 0%, var(--blush) 100%);
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+
+    .space-section .sprig {
+      width: 140px;
+      height: 210px;
+      left: -30px;
+      top: -26px;
+      opacity: 0.28;
+      transform: rotate(-16deg);
+    }
+
+    .space-photo-cluster {
+      position: relative;
+    }
+
+    .space-photo-main {
+      width: 100%;
+      aspect-ratio: 4/5;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      border: 6px solid #fff;
+      transition: transform 0.4s ease;
+    }
+
+    .space-photo-main:hover {
+      transform: translateY(-6px);
+    }
+
+    .space-photo-main img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .space-photo-accent {
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      border-radius: 18px;
+      overflow: hidden;
+      right: -30px;
+      bottom: -30px;
+      border: 6px solid #fff;
+      box-shadow: var(--shadow-md);
+      z-index: 2;
+      transition: transform 0.4s ease;
+    }
+
+    .space-photo-accent:hover {
+      transform: scale(1.06) translateY(-2px);
+    }
+
+    .space-photo-accent img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .space-section h2 {
+      font-size: 34px;
+      margin-bottom: 22px;
+    }
+
+    .space-section p {
+      color: var(--ink);
+      font-size: 16px;
+      margin-bottom: 18px;
+    }
+
+    @media (max-width:900px) {
+      .space-section {
+        grid-template-columns: 1fr;
+        padding: 44px 28px;
+        margin-bottom: 100px;
+        gap: 40px;
+      }
+
+      .space-photo-accent {
+        width: 110px;
+        height: 110px;
+        right: -14px;
+        bottom: -14px;
+      }
+    }
+
+    /* ---------- CTA ---------- */
+    .cta-section {
+      background: linear-gradient(135deg, var(--espresso) 0%, var(--mocha-deep) 100%);
+      padding: 86px 48px;
+      text-align: center;
+      color: #fff;
+      border-radius: 32px;
+      max-width: 1180px;
+      margin: 0 auto 120px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .cta-section::before {
+      content: "";
+      position: absolute;
+      width: 380px;
+      height: 380px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(225, 179, 168, 0.25), transparent 70%);
+      top: -150px;
+      right: -120px;
+    }
+
+    .cta-section .sprig {
+      width: 150px;
+      height: 230px;
+      left: -24px;
+      bottom: -30px;
+      opacity: 0.3;
+    }
+
+    .cta-section h3 {
+      font-size: 34px;
+      color: #fff;
+      margin-bottom: 18px;
+      font-weight: 400;
+      position: relative;
+    }
+
+    .cta-section p {
+      margin-bottom: 36px;
+      font-size: 17px;
+      color: rgba(255, 255, 255, 0.85);
+      position: relative;
+    }
+
+    @media (max-width: 600px) {
+      .cta-section {
+        padding: 60px 24px;
+        margin-bottom: 80px;
+      }
+    }
+
+    /* ---------- Generic container (inner pages) ---------- */
+    .container {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 80px 32px 50px;
+      position: relative;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 40px 20px 30px;
+      }
+
+      .wrap {
+        padding: 0 20px;
+      }
+    }
+
+    .container::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 100vw;
+      height: 100%;
+      transform: translateX(-50%);
+      z-index: -1;
+      background: radial-gradient(ellipse 900px 500px at 15% 0%, var(--accent-c) 0%, transparent 60%),
+        radial-gradient(ellipse 700px 600px at 100% 40%, var(--blush) 0%, transparent 55%);
+      opacity: 0.5;
+    }
+
+    .container>.eyebrow {
+      display: flex;
+    }
+
+    .container h1.page-title {
+      font-size: clamp(36px, 4.8vw, 52px);
+      margin-bottom: 18px;
+      font-weight: 400;
+    }
+
+    .page-intro {
+      font-size: 18px;
+      color: var(--ink);
+      max-width: 680px;
+      margin-bottom: 68px;
+      line-height: 1.75;
+    }
+
+    .container h2 {
+      font-size: 30px;
+      font-weight: 400;
+      margin-top: 64px;
+      margin-bottom: 32px;
+    }
+
+    .container h3 {
+      font-size: 22px;
+      font-weight: 500;
+      margin-bottom: 22px;
+      padding-bottom: 16px;
+      border-bottom: 3px solid var(--rose);
+      display: inline-block;
+      transition: border-color 0.3s ease;
+    }
+
+    .container h3.mocha-border {
+      border-bottom-color: var(--mocha);
+    }
+
+    .container h3.blush-border {
+      border-bottom-color: var(--blush);
+    }
+
+    .container h3.accent-border {
+      border-bottom-color: var(--accent-a);
+    }
+
+    .text-section {
+      margin-bottom: 56px;
+    }
+
+    .text-section p {
+      font-size: 16px;
+      color: var(--ink);
+      margin-bottom: 20px;
+      line-height: 1.75;
+    }
+
+    /* ---------- About page ---------- */
+    .about-hero {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 56px;
+      align-items: center;
+      margin-bottom: 28px;
+      position: relative;
+    }
+
+    .about-photo {
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      border: 6px solid #fff;
+      position: relative;
+      z-index: 2;
+      transition: transform 0.4s ease;
+      aspect-ratio: 3/3.4;
+    }
+
+    .about-photo:hover {
+      transform: translateY(-6px);
+    }
+
+    .about-photo img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .about-hero .sprig {
+      width: 150px;
+      height: 220px;
+      left: -60px;
+      top: -40px;
+      opacity: 0.4;
+      z-index: 1;
+      transform: rotate(-18deg);
+    }
+
+    @media (max-width:760px) {
+      .about-hero {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .about-hero .sprig {
+        display: none;
+      }
+    }
+
+    .about-list {
+      list-style: none;
+      padding: 0;
+      margin-top: 12px;
+    }
+
+    .about-list li {
+      font-size: 16px;
+      color: var(--ink);
+      line-height: 1.8;
+      margin-bottom: 12px;
+      padding-left: 24px;
+      position: relative;
+    }
+
+    .about-list li::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      color: var(--rose-deep);
+      font-weight: 700;
+    }
+
+    /* timeline for studies */
+    .timeline {
+      position: relative;
+      margin-top: 14px;
+      padding-left: 36px;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 7px;
+      top: 6px;
+      bottom: 6px;
+      width: 2px;
+      background: var(--line);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-bottom: 28px;
+    }
+
+    .timeline-item:last-child {
+      padding-bottom: 0;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -36px;
+      top: 4px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--cream);
+      border: 3px solid var(--accent-a);
+      transition: all 0.3s ease;
+    }
+
+    .timeline-item:hover::before {
+      transform: scale(1.3);
+    }
+
+    .timeline-year {
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--accent-b);
+      letter-spacing: 0.03em;
+      margin-bottom: 4px;
+    }
+
+    .timeline-text {
+      font-size: 16px;
+      color: var(--ink);
+    }
+
+    /* ---------- Services page ---------- */
+    .services-banner {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      margin-bottom: 56px;
+      padding: 8px;
+    }
+
+    .services-banner-photo {
+      width: 180px;
+      height: 180px;
+      border-radius: 24px;
+      overflow: hidden;
+      flex-shrink: 0;
+      box-shadow: var(--shadow-md);
+      border: 6px solid #fff;
+      transition: transform 0.4s ease;
+    }
+
+    .services-banner-photo:hover {
+      transform: translateY(-5px) rotate(-1deg);
+    }
+
+    .services-banner-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .services-banner-text p {
+      font-size: 16px;
+      color: var(--ink);
+      line-height: 1.75;
+    }
+
+    @media (max-width:700px) {
+      .services-banner {
+        flex-direction: column;
+        text-align: center;
+        gap: 24px;
+      }
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      margin-bottom: 72px;
+    }
+
+    .card {
+      padding: 28px 30px;
+      background: #fff;
+      border-radius: 18px;
+      border: 1.5px solid var(--line);
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .card:hover {
+      border-color: var(--rose);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .card .dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--accent-b);
+      margin-top: 6px;
+      flex-shrink: 0;
+    }
+
+    .card:nth-child(3n+1) .dot {
+      background: var(--accent-a);
+    }
+
+    .card:nth-child(3n+2) .dot {
+      background: var(--accent-b);
+    }
+
+    .card:nth-child(3n) .dot {
+      background: var(--mocha-deep);
+    }
+
+    .card p {
+      font-size: 15px;
+      color: var(--espresso);
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    @media (max-width:700px) {
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .process-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-bottom: 72px;
+    }
+
+    .process-step {
+      display: grid;
+      grid-template-columns: 70px 1fr;
+      gap: 32px;
+      padding: 36px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .process-step:last-child {
+      border-bottom: none;
+    }
+
+    .process-num {
+      font-family: 'Fraunces', serif;
+      font-size: 42px;
+      color: var(--accent-b);
+      font-weight: 400;
+      font-style: italic;
+    }
+
+    .process-step h4 {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .process-step p {
+      font-size: 15px;
+      color: var(--ink);
+      margin: 0;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 600px) {
+      .process-step {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding: 24px 0;
+      }
+
+      .process-num {
+        font-size: 32px;
+        line-height: 1;
+      }
+    }
+
+    .info-box {
+      background: linear-gradient(135deg, var(--blush), var(--cream-deep));
+      padding: 48px;
+      border-radius: 28px;
+      margin-bottom: 72px;
+      border: 1px solid rgba(225, 179, 168, 0.3);
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+
+    @media (max-width: 600px) {
+      .info-box {
+        padding: 32px 24px;
+      }
+    }
+
+    .info-box .sprig {
+      width: 130px;
+      height: 200px;
+      right: -20px;
+      top: -30px;
+      opacity: 0.35;
+      transform: rotate(24deg);
+    }
+
+    .info-box h3 {
+      font-size: 24px;
+      border-bottom: none;
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
+
+    .info-box p {
+      font-size: 15px;
+      color: var(--espresso);
+      line-height: 1.8;
+      margin: 16px 0 16px 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .info-box p:last-child {
+      margin-bottom: 0;
+    }
+
+    .closing-note {
+      font-size: 17px;
+      color: var(--espresso);
+      background: linear-gradient(135deg, var(--cream-deep), var(--blush));
+      padding: 40px 44px;
+      border-radius: 24px;
+      margin-top: 24px;
+      border: 1px solid rgba(225, 179, 168, 0.2);
+      box-shadow: var(--shadow-sm);
+    }
+
+    @media (max-width: 600px) {
+      .closing-note {
+        padding: 28px 24px;
+        font-size: 15px;
+      }
+    }
+
+    /* ---------- Contact page ---------- */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      margin-bottom: 56px;
+    }
+
+    .contact-info h2 {
+      margin-top: 0;
+    }
+
+    .contact-item {
+      margin-bottom: 36px;
+    }
+
+    .contact-label {
+      font-size: 12px;
+      color: var(--ink-soft);
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.15em;
+      margin-bottom: 10px;
+      font-weight: 800;
+    }
+
+    .contact-value {
+      font-size: 18px;
+      color: var(--accent-a);
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .contact-value:hover {
+      color: var(--mocha-deep);
+      text-decoration: underline;
+      transform: translateX(2px);
+    }
+
+    @media (max-width:760px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .contact-sprig {
+        display: none;
+      }
+    }
+
+    @media (max-width:700px) {
+      .services-sprig {
+        display: none;
+      }
+    }
+
+    .contact-photo-banner {
+      width: 100%;
+      border-radius: 28px;
+      overflow: hidden;
+      margin-bottom: 72px;
+      box-shadow: var(--shadow-md);
+      position: relative;
+      border: 6px solid #fff;
+    }
+
+    .contact-photo-banner img {
+      width: 100%;
+      max-height: 340px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .contact-photo-caption {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 22px 28px;
+      background: linear-gradient(0deg, rgba(62, 43, 37, 0.72), transparent);
+      color: #fff;
+      font-size: 14px;
+      letter-spacing: 0.03em;
+      font-weight: 600;
+    }
+
+    /* ---------- GDPR page ---------- */
+    #gdpr {
+      --accent-a: var(--mocha-deep);
+      --accent-b: #A9705A;
+      --accent-c: #EFE2D2;
+    }
+
+    .gdpr-section {
+      padding-top: 0;
+      margin-top: 0;
+    }
+
+    .gdpr-section h2 {
+      margin-top: 0;
+    }
+
+    .gdpr-item {
+      margin-bottom: 44px;
+    }
+
+    .gdpr-item h3 {
+      font-size: 18px;
+      font-weight: 700;
+      border: none;
+      padding-bottom: 0;
+      margin-bottom: 14px;
+      font-family: 'Karla', sans-serif;
+      color: var(--espresso);
+    }
+
+    .gdpr-item p {
+      font-size: 15px;
+      color: var(--ink);
+      line-height: 1.8;
+      margin-bottom: 12px;
+    }
+
+    .gdpr-item ul {
+      list-style: none;
+      padding: 0;
+      font-size: 15px;
+      color: var(--ink);
+      line-height: 1.8;
+    }
+
+    .gdpr-item ul li {
+      margin-bottom: 8px;
+      padding-left: 24px;
+      position: relative;
+    }
+
+    .gdpr-item ul li::before {
+      content: "·";
+      position: absolute;
+      left: 6px;
+      top: -2px;
+      color: var(--accent-b);
+      font-weight: 900;
+      font-size: 18px;
+    }
+
+    .gdpr-footer {
+      margin-top: 48px;
+      padding-top: 32px;
+      border-top: 1px solid var(--line);
+      font-size: 13px;
+      color: var(--ink-soft);
+      text-align: center;
+    }
+
+    /* ---------- Footer ---------- */
+    footer {
+      background: linear-gradient(135deg, var(--espresso) 0%, var(--mocha-deep) 100%);
+      color: rgba(255, 255, 255, 0.8);
+      padding: 44px 32px;
+      text-align: center;
+      font-size: 14px;
+      letter-spacing: 0.01em;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    footer strong {
+      color: #fff;
+      font-weight: 600;
+    }
+
+    footer .footer-sprig {
+      width: 36px;
+      height: 36px;
+      opacity: 0.6;
+    }
+
+    footer .footer-links {
+      display: flex;
+      gap: 22px;
+      margin-top: 4px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    footer .fejlesztette {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.6);
+      margin-top: 8px;
+    }
+
+    footer .footer-links button {
+      background: none;
+      border: none;
+      color: rgba(255, 255, 255, 0.75);
+      font-family: 'Karla', sans-serif;
+      font-size: 13px;
+      cursor: pointer;
+      transition: color 0.3s ease;
+      padding: 8px;
+    }
+
+    footer .footer-links button:hover {
+      color: #fff;
+      text-decoration: underline;
+    }
+
+    /* Accessibility improvements */
+    :focus-visible {
+      outline: 2px solid var(--rose-deep);
+      outline-offset: 4px;
+      border-radius: 4px;
     }
   </style>
 </head>
+
 <body>
-  <div class="container">
-    <h1>Hamarosan...</h1>
-    <p>A weboldal jelenleg fejlesztés alatt áll.</p>
-    <p>Kérjük, látogasson vissza később!</p>
-    
-    <div class="divider"></div>
-    
-    <div class="name">Jánócsikné Vass Éva</div>
-    <div class="title">Pszichológus, ISST sématerápiás konzultáns</div>
+
+  <!-- ============ hidden botanical sprig definition ============ -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="sprig-shape" viewBox="0 0 160 260">
+        <path d="M80 255 C 76 200 84 150 78 100 C 74 65 82 35 80 5" fill="none" stroke="currentColor" stroke-width="2.4"
+          stroke-linecap="round" />
+        <path d="M78 210 C 55 200 40 185 30 165 C 48 172 65 182 78 198" fill="currentColor" opacity="0.85" />
+        <path d="M80 175 C 104 166 120 150 130 130 C 112 136 94 148 80 165" fill="currentColor" opacity="0.85" />
+        <path d="M78 140 C 55 131 40 116 30 96 C 48 102 65 113 78 128" fill="currentColor" opacity="0.85" />
+        <path d="M80 105 C 104 97 120 82 130 62 C 112 68 94 79 80 95" fill="currentColor" opacity="0.85" />
+        <path d="M79 70 C 60 62 47 49 38 33 C 54 38 68 47 79 60" fill="currentColor" opacity="0.85" />
+        <ellipse cx="80" cy="8" rx="7" ry="10" fill="currentColor" opacity="0.9" />
+      </symbol>
+    </defs>
+  </svg>
+
+  <!-- ============ Cookie Consent Banner ============ -->
+  <div class="cookie-banner" id="cookieBanner" role="dialog" aria-labelledby="cookieTitle">
+    <div class="cookie-header">
+      <div class="cookie-icon" aria-hidden="true">🍪</div>
+      <div class="cookie-title" id="cookieTitle">Sütik és adatvédelem</div>
+    </div>
+    <p class="cookie-text">
+      Weboldalunk fejlesztéséhez és az Ön élményének javításához felhasználunk sütiket.
+      Az oldalon való böngészéssel Ön elfogadja <button onclick="showPage('gdpr')"
+        style="background:none;border:none;color:var(--rose-deep);font-weight:600;text-decoration:underline;cursor:pointer;font-family:inherit;font-size:inherit;">adatkezelési
+        szabályzatunkat</button>.
+    </p>
+    <div class="cookie-actions">
+      <button class="cookie-btn cookie-btn-accept" onclick="acceptCookies()">Elfogadás</button>
+      <button class="cookie-btn cookie-btn-reject" onclick="rejectCookies()">Elutasítás</button>
+    </div>
   </div>
+
+  <!-- ============ Navigation ============ -->
+  <nav aria-label="Fő navigáció">
+    <div class="nav-container">
+      <div class="logo" onclick="showPage('home')" tabindex="0" role="button" aria-label="Ugrás a kezdőlapra"><span
+          class="logo-dot">·</span>Éva</div>
+      <div class="nav-links" id="navLinks" role="menubar">
+        <button class="navlink" onclick="showPage('home')" role="menuitem">Kezdőoldal</button>
+        <button class="navlink" onclick="showPage('about')" role="menuitem">Rólam</button>
+        <button class="navlink" onclick="showPage('services')" role="menuitem">Szolgáltatások</button>
+        <button class="navlink" onclick="showPage('contact')" role="menuitem">Kapcsolat</button>
+      </div>
+      <button class="hamburger" onclick="toggleMobileMenu()" aria-label="Menü megnyitása" aria-expanded="false"
+        aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ============ HOME ============ -->
+  <main id="home" class="page active">
+
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow">Sématerápia · ISST konzultáns</div>
+          <h1>Nem csak a tüneteket kezeljük, hanem az <em>mögöttük álló mintázatokat</em> is</h1>
+          <p class="lead">Előfordul, hogy újra és újra ugyanazokba a nehéz élethelyzetekbe kerülünk. A sématerápia segít
+            megérteni, honnan erednek ezek a mintázatok — és hogyan alakítható ki helyettük egészségesebb,
+            kiegyensúlyozottabb működés.</p>
+          <div class="hero-actions">
+            <button class="btn btn-primary" onclick="showPage('contact')">Kapcsolatfelvétel</button>
+            <button class="btn btn-ghost" onclick="showPage('services')">Hogyan segíthetek?</button>
+          </div>
+        </div>
+
+        <div class="hero-photo-wrap">
+          <div class="hero-blob"></div>
+          <div class="hero-sprig-wrap">
+            <svg viewBox="0 0 560 560" aria-hidden="true">
+              <g style="color:var(--mocha)" transform="translate(60,40) rotate(-14)">
+                <use href="#sprig-shape" width="150" height="240" />
+              </g>
+              <g style="color:var(--rose-deep)" transform="translate(370,270) rotate(18) scale(-1,1) translate(-150,0)">
+                <use href="#sprig-shape" width="150" height="240" />
+              </g>
+            </svg>
+          </div>
+          <div class="hero-photo-frame">
+            <img src="mainkep2.png" alt="Jánócsikné Vass Éva pszichológus, sématerápiás konzultáns portréja" width="340"
+              height="420" fetchpriority="high">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="wrap">
+      <section class="two-column">
+        <div>
+          <h2>Biztonságos tér a változáshoz</h2>
+          <p>Hiszem, hogy minden ember képes a változásra, ha ehhez biztonságos, elfogadó légkört és szakmailag
+            megalapozott segítséget kap.</p>
+          <p>Munkám során arra törekszem, hogy közösen feltárjuk a problémák mélyebb gyökereit, és olyan tartós
+            változást érjünk el, amely a mindennapi életben is érezhető.</p>
+        </div>
+        <div class="quote-photo-frame">
+          <img src="virag2.jpeg" alt="Mezei virág — a növekedés és a változás szimbóluma" width="340" height="425" loading="lazy" decoding="async">
+        </div>
+      </section>
+
+      <section class="teaser-section">
+        <div class="section-heading">
+          <div class="eyebrow">Miben segíthetek</div>
+          <h2>Amikor egy régi mintázat már nem szolgálja Önt</h2>
+        </div>
+        <div class="teaser-grid">
+          <div class="teaser-card">
+            <div class="teaser-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M12 21s-7-4.35-9.5-8.5C.5 8.5 2.5 4.5 6.5 4.5c2 0 3.5 1 5.5 3 2-2 3.5-3 5.5-3 4 0 6 4 4 8-2.5 4.15-9.5 8.5-9.5 8.5Z"
+                  stroke="#B97B6B" stroke-width="1.5" />
+              </svg>
+            </div>
+            <h3>Szorongás &amp; önértékelés</h3>
+            <p>Tartós szorongás, alacsony önértékelés, állandó önkritika és perfekcionizmus feloldása.</p>
+          </div>
+          <div class="teaser-card">
+            <div class="teaser-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M17 20.5c2-1 4-3 4-6.5 0-4-3.5-6-6-6-1 0-2 .3-3 1-1-.7-2-1-3-1-2.5 0-6 2-6 6 0 3.5 2 5.5 4 6.5"
+                  stroke="#8B6552" stroke-width="1.5" />
+                <path d="M9 10.5c1.2-1.2 3.8-1.2 5 0" stroke="#8B6552" stroke-width="1.5" />
+              </svg>
+            </div>
+            <h3>Kapcsolatok &amp; határok</h3>
+            <p>Párkapcsolati, családi nehézségek, elhagyatottságtól való félelem, határok meghúzása.</p>
+          </div>
+          <div class="teaser-card">
+            <div class="teaser-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l3 3M18 18l-3-3M18 6l-3 3M6 18l3-3" stroke="#6B4B3C"
+                  stroke-width="1.5" stroke-linecap="round" />
+              </svg>
+            </div>
+            <h3>Kiégés &amp; gyermekkori minták</h3>
+            <p>Tartós kimerültség, kiégés, és a gyermekkori érzelmi sérülések feldolgozása.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="space-section">
+        <div class="sprig" style="color:var(--mocha)" aria-hidden="true"><svg viewBox="0 0 160 260">
+            <use href="#sprig-shape" />
+          </svg></div>
+        <div class="space-photo-cluster">
+          <div class="space-photo-main">
+            <img src="szobakep.jpg" alt="Nyugodt, meleg hangulatú konzultációs szoba" loading="lazy" decoding="async">
+          </div>
+          <div class="space-photo-accent">
+            <img src="virag3.jpeg" alt="Virág — a megújulás jelképe" loading="lazy" decoding="async">
+          </div>
+        </div>
+        <div>
+          <div class="eyebrow">A konzultáció helyszíne</div>
+          <h2>Egy nyugodt, meleg hangulatú tér</h2>
+          <p>A konzultációk egy csendes, otthonos térben zajlanak, ahol semmi nem vonja el a figyelmet attól, ami
+            valóban számít: az Ön történetét.</p>
+          <p>A cél, hogy már a helyszín is azt üzenje: itt biztonságban van, és teljes figyelmet kap.</p>
+        </div>
+      </section>
+
+      <section class="cta-section">
+        <div class="sprig" style="color:var(--rose)" aria-hidden="true"><svg viewBox="0 0 160 260">
+            <use href="#sprig-shape" />
+          </svg></div>
+        <h3>Készen áll a változásra?</h3>
+        <p>Az első lépés az lehet, hogy felveszi velem a kapcsolatot.</p>
+        <button class="btn btn-white" onclick="showPage('contact')">Kapcsolatfelvétel</button>
+      </section>
+    </div>
+  </main>
+
+  <!-- ============ ABOUT ============ -->
+  <div id="about" class="page">
+    <div class="container">
+      <div class="eyebrow">Rólam</div>
+      <div class="about-hero">
+        <div class="sprig" style="color:var(--rose)" aria-hidden="true"><svg viewBox="0 0 160 260">
+            <use href="#sprig-shape" />
+          </svg></div>
+        <div class="about-photo">
+          <img src="ChatGPT Image 2026. júl. 14. 15_57_50.png" alt="Jánócsikné Vass Éva pszichológus portréja" loading="lazy" decoding="async">
+        </div>
+        <div>
+          <h1 class="page-title">Jánócsikné Vass Éva</h1>
+          <p class="page-intro" style="margin-bottom:0;">Okleveles pszichológus és minősített ISST sématerápiás
+            konzultáns vagyok. Elsősorban felnőttekkel dolgozom, akik szorongással, önértékelési nehézségekkel,
+            perfekcionizmussal, párkapcsolati problémákkal vagy gyermekkori érzelmi sérülések következményeivel
+            küzdenek.</p>
+        </div>
+      </div>
+
+      <div class="text-section" style="margin-top:68px;">
+        <h3 class="accent-border">Szakmai megközelítésem</h3>
+        <p>A sématerápia mellett munkám során a kognitív viselkedésterápia (CBT) bizonyítottan hatékony eszközeit is
+          alkalmazom, mindig a kliens egyéni szükségleteihez igazítva.</p>
+        <p>A szakmai fejlődést kiemelten fontosnak tartom — munkámat folyamatos szupervízió mellett végzem Dr. Vankó
+          Tünde és Galgóczi Kata támogatásával, emellett rendszeresen részt veszek szakmai workshopokon és
+          továbbképzéseken, hogy klienseim számára a legkorszerűbb, bizonyítékokon alapuló módszereket biztosíthassam.
+        </p>
+      </div>
+
+      <div class="text-section" style="position:relative;">
+        <div class="sprig services-sprig"
+          style="color:var(--accent-a); width:100px; height:150px; right:-32px; top:-10px; opacity:0.3; transform:rotate(20deg);"
+          aria-hidden="true"><svg viewBox="0 0 160 260">
+            <use href="#sprig-shape" />
+          </svg></div>
+        <h3 class="blush-border">Tanulmányok és képzések</h3>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-year">Minősített</div>
+            <div class="timeline-text">ISST sématerápiás konzultáns (International Society of Schema Therapy)</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">2026</div>
+            <div class="timeline-text">SémaPÁR-terápiás képzés</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">2025</div>
+            <div class="timeline-text">Csoportos sématerápiás képzés</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">2024</div>
+            <div class="timeline-text">CBT alkalmazása gyermek- és serdülőkorban szakmai továbbképzés</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">2020</div>
+            <div class="timeline-text">Debreceni Egyetem — okleveles pszichológus (MA)</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">2016</div>
+            <div class="timeline-text">Kriston Intim Torna® tréner</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">2012</div>
+            <div class="timeline-text">Debreceni Egyetem — viselkedéselemző (BA)</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">2008</div>
+            <div class="timeline-text">Szolnoki Főiskola — közgazdász diploma</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">2004</div>
+            <div class="timeline-text">Sipkay Barna Kereskedelmi, Vendéglátóipari és Idegenforgalmi Középiskola,
+              Nyíregyháza — érettségi</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="closing-note">Hiszem, hogy a terápiás kapcsolat alapja a bizalom, az elfogadás és az együttműködés.
+        Célom, hogy klienseim olyan biztonságos légkörben dolgozhassanak önmagukon, ahol valódi, tartós változás
+        indulhat el.</div>
+    </div>
+  </div>
+
+  <!-- ============ SERVICES ============ -->
+  <div id="services" class="page">
+    <div class="container">
+      <div class="sprig services-sprig"
+        style="color:var(--accent-a); width:120px; height:180px; right:-40px; top:20px; opacity:0.3; transform:rotate(-16deg);"
+        aria-hidden="true"><svg viewBox="0 0 160 260">
+          <use href="#sprig-shape" />
+        </svg></div>
+      <div class="eyebrow">Szolgáltatások</div>
+      <h1 class="page-title">Hogyan segíthetek?</h1>
+      <p class="page-intro">A sématerápia egy hatékony, korszerű, tudományosan megalapozott pszichoterápiás szemlélet,
+        amely segít megérteni, hogy jelenlegi nehézségeink milyen gyermekkori vagy későbbi élettapasztalatokból
+        alakultak ki.</p>
+
+      <div class="services-banner">
+        <div class="services-banner-photo">
+          <img src="virag4.jpeg" alt="Virág — a megújulás és fejlődés szimbóluma" loading="lazy" decoding="async">
+        </div>
+        <div class="services-banner-text">
+          <p>Minden mintázat mögött egy tanult, valamikor hasznos túlélési stratégia áll. A közös munka célja, hogy ezek
+            helyett olyan, ma is működő válaszokat találjunk, amelyek valóban szolgálják Önt.</p>
+        </div>
+      </div>
+
+      <h2>Miben segíthet a sématerápia?</h2>
+      <div class="grid-2">
+        <div class="card"><span class="dot"></span>
+          <p>Tartós szorongás, túlzott aggodalmaskodás</p>
+        </div>
+        <div class="card"><span class="dot"></span>
+          <p>Pánik és fokozott stressz</p>
+        </div>
+        <div class="card"><span class="dot"></span>
+          <p>Alacsony önértékelés, önbizalomhiány</p>
+        </div>
+        <div class="card"><span class="dot"></span>
+          <p>Állandó önkritika, perfekcionizmus</p>
+        </div>
+        <div class="card"><span class="dot"></span>
+          <p>Párkapcsolati és családi nehézségek</p>
+        </div>
+        <div class="card"><span class="dot"></span>
+          <p>Ismétlődő konfliktusok, visszatérő élethelyzetek</p>
+        </div>
+        <div class="card"><span class="dot"></span>
+          <p>Érzelmi függőség vagy túlzott alkalmazkodás</p>
+        </div>
+        <div class="card"><span class="dot"></span>
+          <p>Nehézségek a határok meghúzásában, nemet mondásban</p>
+        </div>
+        <div class="card"><span class="dot"></span>
+          <p>Elhagyatottságtól, visszautasítástól való félelem</p>
+        </div>
+        <div class="card"><span class="dot"></span>
+          <p>Bűntudat, szégyenérzés</p>
+        </div>
+        <div class="card"><span class="dot"></span>
+          <p>Kiégés, tartós kimerültség</p>
+        </div>
+        <div class="card"><span class="dot"></span>
+          <p>Gyermekkori traumák és érzelmi sérülések feldolgozása</p>
+        </div>
+        <div class="card"><span class="dot"></span>
+          <p>Érzelemszabályozási nehézségek</p>
+        </div>
+        <div class="card"><span class="dot"></span>
+          <p>Személyiségműködésből fakadó visszatérő problémák</p>
+        </div>
+      </div>
+
+      <h2 style="position:relative;">Hogyan zajlik a folyamat?
+        <span class="sprig services-sprig"
+          style="color:var(--mocha); width:70px; height:110px; left:-90px; top:-20px; opacity:0.28; transform:rotate(-10deg);"
+          aria-hidden="true"><svg viewBox="0 0 160 260">
+            <use href="#sprig-shape" />
+          </svg></span>
+      </h2>
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="process-num">01</div>
+          <div>
+            <h4>Megismerés és feltérképezés</h4>
+            <p>Az első alkalmak során részletesen átbeszéljük a jelenlegi nehézségeket és az élettörténetet.</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="process-num">02</div>
+          <div>
+            <h4>A minták azonosítása</h4>
+            <p>Közösen feltérképezzük azokat a sémákat és működési módokat, amelyek a problémák fennmaradásában szerepet
+              játszanak.</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="process-num">03</div>
+          <div>
+            <h4>Élményközpontú munka</h4>
+            <p>A beszélgetést imaginációs gyakorlatokkal, széktechnikával és viselkedési feladatokkal ötvözzük, hogy a
+              mindennapi életben is másképp reagálhasson a nehéz helyzetekre.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-box">
+        <div class="sprig" style="color:var(--mocha)" aria-hidden="true"><svg viewBox="0 0 160 260">
+            <use href="#sprig-shape" />
+          </svg></div>
+        <h3>A sématerápia célja</h3>
+        <p>Nem az, hogy „megváltoztassa a személyiségét", hanem hogy megszabaduljon azoktól a régi mintázatoktól,
+          amelyek már nem szolgálják Önt.</p>
+        <p>A terápia segítségével nagyobb önbizalom, biztonságérzet, egészségesebb kapcsolatok és kiegyensúlyozottabb
+          élet alakítható ki.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ CONTACT ============ -->
+  <div id="contact" class="page">
+    <div class="container">
+      <div class="eyebrow">Kapcsolat</div>
+      <h1 class="page-title">Lépjen kapcsolatba velem</h1>
+      <p class="page-intro">Az első konzultáció egy lehetőség, hogy megismerkedjünk egymással, és közösen feltárjuk,
+        hogyan tudnék Önnek segíteni.</p>
+
+      <div class="contact-grid">
+        <div class="contact-info" style="position:relative;">
+          <div class="sprig contact-sprig"
+            style="color:var(--accent-b); width:90px; height:140px; left:-70px; top:-20px; opacity:0.25; transform:rotate(-22deg);"
+            aria-hidden="true"><svg viewBox="0 0 160 260">
+              <use href="#sprig-shape" />
+            </svg></div>
+          <div class="contact-item">
+            <div class="contact-label">E-mail</div>
+            <a href="mailto:vasseva@semavasseva.hu" class="contact-value">vasseva@semavasseva.hu</a>
+          </div>
+          <div class="contact-item">
+            <div class="contact-label">Telefonszám</div>
+            <a href="tel:06202654132" class="contact-value">06202654132</a>
+          </div>
+          <div class="contact-item">
+            <div class="contact-label">Helyszín</div>
+            <div style="font-size:17px; color:var(--espresso); font-weight:600;">Nyíregyháza és online</div>
+          </div>
+        </div>
+
+        <div class="info-box" style="margin-bottom:0;">
+          <div class="sprig" style="color:var(--rose-deep)" aria-hidden="true"><svg viewBox="0 0 160 260">
+              <use href="#sprig-shape" />
+            </svg></div>
+          <h3 style="margin-bottom:18px;">Információ</h3>
+          <p>Az első konzultáció egy lehetőség, hogy megismerkedjünk egymással, és közösen feltárjuk, hogyan tudnék
+            Önnek segíteni.</p>
+          <p>Kérem, hogy előzőleg keresse fel e-mailen, hogy egyeztethessünk egy alkalmas időpontot.</p>
+        </div>
+      </div>
+
+      <div class="closing-note"
+        style="display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap;">
+        <span>Kíváncsi rá, hogyan kezeljük az Ön adatait? Az adatkezelési tájékoztató külön oldalon érhető el.</span>
+        <button class="btn btn-ghost" onclick="showPage('gdpr')" style="flex-shrink:0;">Adatvédelem &amp; GDPR</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ GDPR / ADATVÉDELEM ============ -->
+  <div id="gdpr" class="page">
+    <div class="container">
+      <div class="eyebrow">Adatvédelem</div>
+      <h1 class="page-title">Adatkezelési nyilatkozat</h1>
+      <p class="page-intro">Az alábbiakban tájékoztatjuk arról, hogyan kezeljük az Ön személyes adatait a weboldal
+        használata és a szolgáltatásaink igénybevétele során.</p>
+
+      <div class="gdpr-section">
+        <div class="gdpr-item">
+          <h3>1. Az adatkezelő</h3>
+          <p>Jánócsikné Vass Éva, egyéni vállalkozó, mint az adatkezelő, felelős az Ön személyes adatainak kezeléséért.
+            Az adatkezeléssel kapcsolatos kérdéseit keresse fel az vass.eva6@gmail.com e-mail címen.</p>
+        </div>
+
+        <div class="gdpr-item">
+          <h3>2. A kezelt adatok köre</h3>
+          <p>Az alábbi személyes adatokat kezeljük, ha Ön kapcsolatot vesz fel velünk vagy szolgáltatásainkat igénybe
+            veszi:</p>
+          <ul>
+            <li>Név, e-mail cím, telefonszám</li>
+            <li>Konzultációval kapcsolatos információk</li>
+            <li>Terápiás munkával kapcsolatos adatok (csak a kliens beleegyezésével)</li>
+          </ul>
+        </div>
+
+        <div class="gdpr-item">
+          <h3>3. Az adatkezelés célja</h3>
+          <ul>
+            <li>Kapcsolatfelvételre és konzultációra</li>
+            <li>Pszichoterápiás szolgáltatások nyújtására</li>
+            <li>Jogszabályi kötelezettségek teljesítésére</li>
+            <li>Kommunikáció és tájékoztatás küldésére (az Ön beleegyezésével)</li>
+          </ul>
+        </div>
+
+        <div class="gdpr-item">
+          <h3>4. Jogalapok</h3>
+          <p>Az adatkezelés a következő jogalapok alapján történik:</p>
+          <ul>
+            <li>Az Ön beleegyezése (GDPR 6. cikk (1) a) pont)</li>
+            <li>Szerződés teljesítése (GDPR 6. cikk (1) b) pont)</li>
+            <li>Jogi kötelezettség teljesítése (GDPR 6. cikk (1) c) pont)</li>
+          </ul>
+        </div>
+
+        <div class="gdpr-item">
+          <h3>5. Az adatok tárolása</h3>
+          <p>Az Ön személyes adatait a pszichoterápiás kezelés végéig, vagy a jogszabályban meghatározott időtartamig
+            tároljuk. Az adatokat biztonságos módon kezeljük, megfelelő technikai és szervezeti intézkedéseket
+            alkalmazunk az adatok védelme érdekében.</p>
+        </div>
+
+        <div class="gdpr-item">
+          <h3>6. Az Ön jogai</h3>
+          <p>Az Ön a következő jogokkal rendelkezik:</p>
+          <ul>
+            <li>Hozzáférési jog: megismerheti személyes adatait</li>
+            <li>Helyesbítési jog: kérheti tévesen kezelt adatai módosítását</li>
+            <li>Törlési jog: bizonyos körülmények között kérheti adatai törlését</li>
+            <li>Adathordozhatóság joga: adatait strukturált, széles körben használt formátumban kérheti</li>
+            <li>Tiltakozási jog: tiltakozhat az adatkezelés ellen</li>
+          </ul>
+        </div>
+
+        <div class="info-box" style="margin-top:48px; margin-bottom:0;">
+          <div class="sprig" style="color:var(--accent-a)" aria-hidden="true"><svg viewBox="0 0 160 260">
+              <use href="#sprig-shape" />
+            </svg></div>
+          <h3 style="margin-bottom:16px;">7. Kapcsolat</h3>
+          <p style="margin-bottom:0;">Amennyiben kérdései vannak az adatkezelésről, vagy jogait szeretné gyakorolni,
+            keressen fel bennünket az vass.eva6@gmail.com e-mail címen vagy a +36 (1) 123-4567 telefonszámon.</p>
+        </div>
+
+        <div class="gdpr-footer">
+          Utolsó frissítés: 2026. július<br>© 2026 Jánócsikné Vass Éva. Minden jog fenntartva.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <svg class="footer-sprig" viewBox="0 0 160 260" style="color:var(--blush)" aria-hidden="true">
+      <use href="#sprig-shape" />
+    </svg>
+    © 2026 <strong>Jánócsikné Vass Éva</strong> — Pszichológus, ISST sématerápiás konzultáns
+    <div class="footer-links">
+      <button onclick="showPage('gdpr')">Adatvédelem</button>
+      <button onclick="showPage('contact')">Kapcsolat</button>
+    </div>
+    <a class="fejlesztette" href="https://axiomaweb.hu" target="_blank">Fejlesztette: Axióma Webfejlesztés</a>
+  </footer>
+
+  <script>
+    // Cookie Consent Functions
+    function showCookieBanner() {
+      const hasDecided = localStorage.getItem('cookiesAccepted');
+      if (hasDecided === null) {
+        setTimeout(() => {
+          document.getElementById('cookieBanner').classList.add('show');
+        }, 800);
+      }
+    }
+
+    function acceptCookies() {
+      localStorage.setItem('cookiesAccepted', 'true');
+      hideCookieBanner();
+    }
+
+    function rejectCookies() {
+      localStorage.setItem('cookiesAccepted', 'false');
+      hideCookieBanner();
+    }
+
+    function hideCookieBanner() {
+      document.getElementById('cookieBanner').classList.remove('show');
+    }
+
+    // Page Navigation
+    function showPage(pageId) {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      document.getElementById(pageId).classList.add('active');
+
+      // Close mobile menu if open
+      const navLinks = document.getElementById('navLinks');
+      const hamburger = document.querySelector('.hamburger');
+      if (navLinks.classList.contains('mobile-open')) {
+        navLinks.classList.remove('mobile-open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      }
+
+      window.scrollTo({ top: 0, behavior: 'instant' });
+      updateActiveNav(pageId);
+
+      // Update URL hash without jumping
+      history.replaceState(null, null, '#' + pageId);
+    }
+
+    function toggleMobileMenu() {
+      const navLinks = document.getElementById('navLinks');
+      const hamburger = document.querySelector('.hamburger');
+      const isExpanded = navLinks.classList.toggle('mobile-open');
+      hamburger.setAttribute('aria-expanded', isExpanded);
+    }
+
+    function updateActiveNav(pageId) {
+      const links = document.querySelectorAll('.nav-links .navlink');
+      links.forEach(l => l.classList.remove('active'));
+      const map = { home: 0, about: 1, services: 2, contact: 3, gdpr: 4 };
+      if (map[pageId] !== undefined) links[map[pageId]].classList.add('active');
+    }
+
+    // Handle initial hash routing
+    function handleHash() {
+      const hash = window.location.hash.substring(1);
+      const validPages = ['home', 'about', 'services', 'contact', 'gdpr'];
+      if (hash && validPages.includes(hash)) {
+        showPage(hash);
+      } else {
+        showPage('home');
+      }
+    }
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', () => {
+      handleHash();
+      showCookieBanner();
+
+      // PWA Service Worker Registration
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').catch(error => {
+            console.log('ServiceWorker registration failed: ', error);
+          });
+        });
+      }
+    });
+
+    // Handle browser back/forward buttons
+    window.addEventListener('hashchange', handleHash);
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href !== '#') {
+          e.preventDefault();
+          const target = document.querySelector(href);
+          if (target) target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+
 </body>
 </html>
